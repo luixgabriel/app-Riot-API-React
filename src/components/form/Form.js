@@ -1,28 +1,36 @@
 import React, { useEffect, useState } from 'react'
+import api from '../../config/api'
 import './Form.css'
 
 const Form = () => {
     const [riotID, setRiotID] = useState('')
     const [summoner, setSummoner] = useState('')
 
-    const getSummoner = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault()
+    }
+
+    const getSummoner = (e) =>{
         setSummoner(e.target.value)
     }
     
     useEffect(()=>{
-
+        const getRiotID = async ()=> {
+            const response = await api.get('luixgabriel')
+            console.log(response)
+        } 
     }, [])
 
   return (
     <div className='form__group field'>
-          <form action="/player">
-            <input type="input" className="form__field" placeholder="Name" name="name" id='name' required />
-            <label for="name" value={summoner} className="form__label" onChange={getSummoner}>digite seu nome</label>
+          <form action="/player" onSubmit={handleSubmit}>
+            <input type="input" className="form__field" value={summoner} placeholder="Name" name="name" id='name' onChange={getSummoner} required />
+            <label htmlFor='name' className="form__label">digite seu nome</label>
             <div className="button">
               <button>pesquisar</button>
             </div>
           </form>
+          {summoner}
     </div>
   )
 }
