@@ -1,38 +1,26 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: game ;
+  src: url('./assets/fonts/GameCube.ttf');
+}
+:root {
+  --iron:  #493C3A;
+  --bronze: #5C3D37;
+  --silver: #8E9FA7;
+  --gold: #714B1D;
+  --platinum: #358474;
+  --diamond: #4769C0;
+  --master: #D672F4;
+  --grandmaster: #2B262F;
+  --challenger: #B5904C;
+  --light-shadow: #77571d;
+--dark-shadow: #3e2904;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: game;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

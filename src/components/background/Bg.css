@@ -1,0 +1,12 @@
+.BG{
+    max-width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url('../../assets//imgs/656584.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
