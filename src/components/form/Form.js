@@ -1,28 +1,46 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import {api, apiKey} from '../../config/api'
 import './Form.css'
 
 
 const Form = () => {
-    const [riotID, setRiotID] = useState('')
     const [summoner, setSummoner] = useState('')
+    const [player, setPlayer] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        const getRiotID = async () => {
+          try {
+            const response = await api.get(`${summoner}${apiKey}`);
+            const id = response.data.id
+            alert('oi')
+            return id
+          } catch (error) {
+            console.log(error)
+            return
+          }
+        }
+
+        const getPlayer = async () =>{
+          const riotID = await getRiotID()
+          console.log(riotID)
+          }
+
+          getPlayer()
+       
     }
 
     const getSummoner = (e) =>{
         setSummoner(e.target.value)
     }
     
-    useEffect(()=>{
-        const getRiotID = async ()=> {
-            const response = await api.get(apiKey);
-            console.log(response)
-        }
-        getRiotID() 
-    }, [])
+
+     
+
+    
+    
+       
 
   return (
     <div className='form__group field'>
