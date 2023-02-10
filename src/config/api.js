@@ -1,15 +1,13 @@
 import axios from "axios";
 
-const baseURL = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/'
-const headers = {
-    baseURL,
-    'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'X-Riot-Token': 'luis'
-}
+const baseURL = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/luixgabriel'
+export const apiKey = '?api_key=RGAPI-59c1cb3f-50b2-452c-88e0-bb7e7b341df4'
 
-const api = axios.create({
-   baseURL,
-   headers
+
+export const api = axios.create({
+   baseURL
 })
 
-export default api
+
+
+

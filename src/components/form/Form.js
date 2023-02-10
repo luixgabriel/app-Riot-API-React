@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import api from '../../config/api'
+
+import {api, apiKey} from '../../config/api'
 import './Form.css'
+
 
 const Form = () => {
     const [riotID, setRiotID] = useState('')
@@ -16,9 +18,10 @@ const Form = () => {
     
     useEffect(()=>{
         const getRiotID = async ()=> {
-            const response = await api.get('luixgabriel')
+            const response = await api.get(apiKey);
             console.log(response)
-        } 
+        }
+        getRiotID() 
     }, [])
 
   return (
