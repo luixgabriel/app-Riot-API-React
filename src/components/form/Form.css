@@ -94,7 +94,7 @@
   
   
   .clock-loader {
-    --clock-color: blue;
+    --clock-color: #4399D4;
     --clock-width: 4rem;
     --clock-radius: calc(var(--clock-width) / 2);
     --clock-minute-length: calc(var(--clock-width) * 0.4);

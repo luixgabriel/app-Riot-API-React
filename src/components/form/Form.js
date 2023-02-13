@@ -1,23 +1,28 @@
 import React, { useState } from 'react'
 import {api, apiKey} from '../../config/api'
 import './Form.css'
-import ClockLoader from '../clock-loader/ClockLoader'
 
 
-const Form = () => {
+
+const Form = (props) => {
+    
     const [summoner, setSummoner] = useState('')
-    const [player, setPlayer] = useState('vascoooo')
+    const [player, setPlayer] = useState('')
     const [loading, setLoading] = useState(0)
+
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(1)
         const getRiotID = async () => {
           try {
-            const response = await api.get(`${summoner}${apiKey}`);
-            const id = response.data.id
-            alert('oi')
+            console.log(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}${apiKey}`)
+            const response = await fetch(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}${apiKey}`)
+            const data = await (response.json())
+            const id = data.id
             return id
+            
           } catch (error) {
             console.log(error)
             return
