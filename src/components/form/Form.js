@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
 import {baseURL, apiKey} from '../../config/api'
-import './Form.css'
-import Panel from '../panel/Panel'
+import * as imgsT from '../../config/imgsTIER'
+import getTier from '../../config/GetTier';
+import './Form.css';
 
-
-
-const Form = (props) => {
+const Form = () => {
     
     const [summoner, setSummoner] = useState('')
     const [player, SetPlayer] = useState([])
     const [loading, setLoading] = useState(0)
-    // const [dataplayer, Setdataplayer] = ('')
-
-    const dataplayer = 'luixgabriel'
   
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -34,21 +30,39 @@ const Form = (props) => {
           const riotID = await getRiotID()
           const response = await fetch(`${baseURL}tft/league/v1/entries/by-summoner/${riotID}${apiKey}`)
           const data = await (response.json())
+          console.log(data)
           SetPlayer(data)
-          console.log(player[0].tier)
           }
-
-          getPlayer()  
+          
+          await getPlayer()  
+        
+        
        
     }
+
+    
     const getSummoner = (e) =>{
         setSummoner(e.target.value)
     }
+
     
+
     if(player.length > 0){
+      const getT = getTier(player[0].tier)
+      // eslint-disable-next-line no-unused-vars
+      const {iron, bronze, silver, gold, platinum, diamond, master,  grandmaster, challenger} = imgsT
+  
       return(
-        // <Panel dataplayer={dataplayer}/>
-        <h1>{player[0].tier}</h1>
+        <div className='stats'>
+            <img src={getT} className='tier' alt='tier'></img>
+            <div className='info'>
+              <p>pdls: {player[0].leaguePoints}</p>
+              <p>wins: {player[0].wins}</p>
+              <p>losses: {player[0].losses}</p>
+            </div>
+           
+        </div>
+        
       )
     }
   return (

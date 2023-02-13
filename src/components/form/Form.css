@@ -74,6 +74,28 @@
     cursor: pointer;
     display: none;
    }
+
+   .stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #df6238ab;
+    border-radius: 5px;
+    color: #fff;
+    
+    padding: 5px;
+   }
+
+   .stats img {
+    width: 180px;
+    margin-bottom: 10px;
+   }
+
+  
+   .info p {
+    margin: 5px;
+    font-weight: bold;
+   }
    
 
 
