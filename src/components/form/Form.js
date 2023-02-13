@@ -1,24 +1,25 @@
 import React, { useState } from 'react'
-import {api, apiKey} from '../../config/api'
+import {baseURL, apiKey} from '../../config/api'
 import './Form.css'
+import Panel from '../panel/Panel'
 
 
 
 const Form = (props) => {
     
     const [summoner, setSummoner] = useState('')
-    const [player, setPlayer] = useState('')
+    const [player, SetPlayer] = useState([])
     const [loading, setLoading] = useState(0)
+    // const [dataplayer, Setdataplayer] = ('')
 
-    
-
+    const dataplayer = 'luixgabriel'
+  
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(1)
         const getRiotID = async () => {
           try {
-            console.log(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}${apiKey}`)
-            const response = await fetch(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}${apiKey}`)
+            const response = await fetch(`${baseURL}lol/summoner/v4/summoners/by-name/${summoner}${apiKey}`)
             const data = await (response.json())
             const id = data.id
             return id
@@ -31,19 +32,30 @@ const Form = (props) => {
 
         const getPlayer = async () =>{
           const riotID = await getRiotID()
-          console.log(riotID)
+          const response = await fetch(`${baseURL}tft/league/v1/entries/by-summoner/${riotID}${apiKey}`)
+          const data = await (response.json())
+          SetPlayer(data)
+          console.log(player[0].tier)
           }
 
-          getPlayer()
+          getPlayer()  
        
     }
-
     const getSummoner = (e) =>{
         setSummoner(e.target.value)
     }
     
+    if(player.length > 0){
+      return(
+        // <Panel dataplayer={dataplayer}/>
+        <h1>{player[0].tier}</h1>
+      )
+    }
   return (
-    <div className='form__group field'>
+    <>
+      <h1>nome do invocador</h1>
+      <div className='form__group field'>
+          
           <form action="/player" onSubmit={handleSubmit}>
             <input type="input" className="form__field" value={summoner} placeholder="Name" name="name" id='name' onChange={getSummoner} required />
             <label htmlFor='name' className="form__label">digite seu nome</label>
@@ -60,6 +72,8 @@ const Form = (props) => {
             
            )}
     </div>
+    </>
+   
   )
 }
 
