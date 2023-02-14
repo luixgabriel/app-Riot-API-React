@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {baseURL, apiKey} from '../../config/api'
 // eslint-disable-next-line no-unused-vars
 import {iron, bronze, silver, gold, platinum, diamond, master,  grandmaster, challenger} from '../../config/imgsTIER';
-import getTier from '../../config/getTier';
+import getTier from '../../config/tier';
 import getColors from '../../config/getColors';
 import './Form.css';
 

@@ -13,4 +13,4 @@ const getTier = (tier) => {
     }
 }
 
-export default getTier
+export default getTier;
