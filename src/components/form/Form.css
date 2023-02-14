@@ -98,7 +98,57 @@
     font-weight: bold;
    }
    
+   @media screen and (min-width: 300px) and (max-width: 620px) {
+    .panel{
+      height: 100%;
+    }
+     .panel h1 {
+      font-size: 1.5rem;
+     }
+  
+     .img-jinx {
+      width: 60%;
+     }
+  
+     .form__group {
+      width: 80%;
+     }
+  
+     .button {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     }
+  
+     .button button {
+      background-color: transparent;
+      font-size: 0.9rem;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      color: #fff;
+      margin: 20px 0px;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      display: block;
+     }
+  
+     .erro {
+      width: 100%;
+      height: 100%;
+     }
 
+     .stats {
+      width: 80%;
+      flex-direction: column;
+     }
+
+     .stats p {
+      font-size: 1.5rem;
+     }
+  }
 
    /* CLOCK LOADER */
 
