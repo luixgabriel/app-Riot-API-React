@@ -79,11 +79,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #df6238ab;
     border-radius: 5px;
     color: #fff;
-    
+    border: 1px solid #fff;
     padding: 5px;
+    width: 400px;
    }
 
    .stats img {
@@ -93,7 +93,8 @@
 
   
    .info p {
-    margin: 5px;
+    margin: 10px 20px;
+    font-size: 1.1rem;
     font-weight: bold;
    }
    

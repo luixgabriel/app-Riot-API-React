@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import {baseURL, apiKey} from '../../config/api'
-import * as imgsT from '../../config/imgsTIER'
-import getTier from '../../config/GetTier';
+// eslint-disable-next-line no-unused-vars
+import {iron, bronze, silver, gold, platinum, diamond, master,  grandmaster, challenger} from '../../config/imgsTIER';
+import getTier from '../../config/getTier';
+import getColors from '../../config/getColors';
 import './Form.css';
 
+
+
 const Form = () => {
-    
+
     const [summoner, setSummoner] = useState('')
     const [player, SetPlayer] = useState([])
     const [loading, setLoading] = useState(0)
@@ -49,18 +53,18 @@ const Form = () => {
 
     if(player.length > 0){
       const getT = getTier(player[0].tier)
-      // eslint-disable-next-line no-unused-vars
-      const {iron, bronze, silver, gold, platinum, diamond, master,  grandmaster, challenger} = imgsT
+      const getV = getColors(player[0].tier)
+      
+   
   
       return(
-        <div className='stats'>
+        <div className='stats' style={{background: getV}}>
             <img src={getT} className='tier' alt='tier'></img>
             <div className='info'>
               <p>pdls: {player[0].leaguePoints}</p>
               <p>wins: {player[0].wins}</p>
               <p>losses: {player[0].losses}</p>
             </div>
-           
         </div>
         
       )
@@ -77,8 +81,6 @@ const Form = () => {
               <button>pesquisar</button>
             </div>
           </form>
-          {summoner}
-
           {loading === 1 && player.length < 1 && (
             <div className='loading'>
               <div className="clock-loader"></div>

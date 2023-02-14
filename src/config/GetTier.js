@@ -9,9 +9,7 @@ const getTier = (tier) => {
         case 'MASTER': return '/static/media/MASTER.03f7cfc987f68d7dc136.png'
         case 'GRANDMASTER': return '/static/media/GRANDMASTER.86991b3a97ddf2c687fb.png'
         case 'CHALLENGER': return '/static/media/CHALLENGER.85d9a1053a4a3b593d50.png'  
-        default: {
-            return null
-        }
+        default: return null
     }
 }
 

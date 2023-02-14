@@ -2,7 +2,7 @@
     min-width: 85%;
     min-height: 85%;
     border-radius: 10px;
-    border: 5px solid #4399D4;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #162137b2;
     display: flex;
     justify-content:flex-start;
