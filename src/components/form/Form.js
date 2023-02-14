@@ -34,7 +34,6 @@ const Form = () => {
           const riotID = await getRiotID()
           const response = await fetch(`${baseURL}tft/league/v1/entries/by-summoner/${riotID}${apiKey}`)
           const data = await (response.json())
-          console.log(data)
           SetPlayer(data)
           }
           
