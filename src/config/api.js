@@ -1,4 +1,4 @@
 export const baseURL = 'https://br1.api.riotgames.com/';
-export const apiKey = '?api_key=RGAPI-a658e9c4-42ed-4b07-8ce6-7c11770fa360';
+export const apiKey = '?api_key=RGAPI-00959fed-ad19-41c5-99aa-8d08f5bd23ac';
 
 
