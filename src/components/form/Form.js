@@ -45,7 +45,7 @@ const Form = () => {
 
     
     const getSummoner = (e) =>{
-        setSummoner(e.target.value)
+        setSummoner(e.target.value);
     }
 
     
@@ -54,8 +54,6 @@ const Form = () => {
       const getT = getTier(player[0].tier)
       const getV = getColors(player[0].tier)
       
-   
-  
       return(
         <div className='stats' style={{background: getV}}>
             <img src={getT} className='tier' alt='tier'></img>
