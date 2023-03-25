@@ -13,6 +13,7 @@ const Form = () => {
     const [summoner, setSummoner] = useState('')
     const [player, SetPlayer] = useState([])
     const [loading, setLoading] = useState(0)
+    const [playerExists, setPlayerExists] = useState(true)
   
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -21,26 +22,35 @@ const Form = () => {
           try {
             const response = await fetch(`${baseURL}lol/summoner/v4/summoners/by-name/${summoner}${apiKey}`)
             const data = await (response.json())
+            console.log(data)
             const id = data.id
             return id
             
           } catch (error) {
+           
             console.log(error)
             return
           }
         }
 
         const getPlayer = async () =>{
+          console.log(player)
+          console.log(player.length)
+         
           const riotID = await getRiotID()
+          if(!riotID){
+            setPlayerExists(false)
+          }
+          console.log(riotID)
           const response = await fetch(`${baseURL}tft/league/v1/entries/by-summoner/${riotID}${apiKey}`)
           const data = await (response.json())
+          console.log(data.length)
           SetPlayer(data)
           }
           
           await getPlayer()  
-        
-        
-       
+          
+      
     }
 
     
@@ -48,7 +58,19 @@ const Form = () => {
         setSummoner(e.target.value);
     }
 
-    
+    const reloadPage = () =>{
+      window.location.reload()
+    }
+
+    if(!playerExists){
+      return(
+       <div className='panel-error'>
+          <h2>invocador nao encontrado ou sem historico de partidas rankeadas</h2>
+          <button onClick={reloadPage}>tentar novamente</button>
+       </div>
+          
+      )
+    }
 
     if(player.length > 0){
       const getT = getTier(player[0].tier)
