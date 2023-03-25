@@ -44,7 +44,9 @@ const Form = () => {
           console.log(riotID)
           const response = await fetch(`${baseURL}tft/league/v1/entries/by-summoner/${riotID}${apiKey}`)
           const data = await (response.json())
-          console.log(data.length)
+          if(data.length === 0){
+            setPlayerExists(false)
+          }
           SetPlayer(data)
           }
           
