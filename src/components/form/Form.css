@@ -97,11 +97,39 @@
     font-size: 1.1rem;
     font-weight: bold;
    }
+
+   .panel-error{
+    margin-top: 30px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .panel-error h2 {
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 60%;
+  }
+  .panel-error button {
+    margin-top: 20px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.897);
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+
+  }
    
    @media screen and (min-width: 300px) and (max-width: 620px) {
     .panel{
       height: 100%;
     }
+    
      .panel h1 {
       font-size: 1.5rem;
      }
@@ -148,6 +176,17 @@
      .stats p {
       font-size: 1.5rem;
      }
+
+     .panel-error {
+      width: 90%;
+     }
+     .panel-error h2 {
+      font-size: 1.5rem;
+      width: 100%;
+      
+      
+     }
+
   }
 
    /* CLOCK LOADER */
@@ -213,29 +252,4 @@
     }
   }
   
-  .panel-error{
-    margin-top: 30px;
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .panel-error h2 {
-    text-align: center;
-    font-weight: bold;
-    color: #fff;
-    font-size: 1.5rem;
-    width: 60%;
-  }
-  .panel-error button {
-    margin-top: 20px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.897);
-    font-weight: bold;
-    color: #fff;
-    padding: 10px 30px;
-    border-radius: 8px;
-    cursor: pointer;
-
-  }
+  
