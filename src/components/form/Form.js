@@ -6,8 +6,6 @@ import getTier from '../../config/tier';
 import getColors from '../../config/getColors';
 import './Form.css';
 
-
-
 const Form = () => {
 
     const [summoner, setSummoner] = useState('')
@@ -34,9 +32,7 @@ const Form = () => {
         }
 
         const getPlayer = async () =>{
-          console.log(player)
-          console.log(player.length)
-         
+        
           const riotID = await getRiotID()
           if(!riotID){
             setPlayerExists(false)
@@ -51,11 +47,9 @@ const Form = () => {
           }
           
           await getPlayer()  
-          
-      
+        
     }
 
-    
     const getSummoner = (e) =>{
         setSummoner(e.target.value);
     }
